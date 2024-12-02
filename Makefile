@@ -4,10 +4,7 @@ CFLAGS = -Wall -Wextra -Werror -pedantic
 HEADERS = binary_trees.h
 
 # Project Files
-SRC = 0-binary_tree_node.c \
-      binary_tree_print.c \
-      # Add other source files as you implement them
-
+SRC = 0-binary_tree_node.c
 OBJ = $(SRC:.c=.o)
 
 # Executable Targets
