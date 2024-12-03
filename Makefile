@@ -44,6 +44,12 @@ SRC_18 = 0-binary_tree_node.c 18-binary_tree_uncle.c binary_tree_print.c \
          3-binary_tree_delete.c
 OBJ_18 = $(SRC_18:.c=.o)
 
+# Source Files for Task 19
+SRC_100 = 0-binary_tree_node.c binary_tree_print.c \
+           3-binary_tree_delete.c 100-binary_trees_ancestor.c
+OBJ_100 = $(SRC_100:.c=.o)
+
+
 # Executable Targets
 TARGETS = 0-node 9-height 10-depth 12-leaves 13-nodes
 
@@ -90,6 +96,10 @@ all: $(TARGETS)
 
 # Rule for 18-uncle
 18-uncle: 18-main.o $(OBJ_18)
+	$(CC) $(CFLAGS) -o $@ $^
+
+# Rule for 100-ancestor
+100-ancestor: 100-main.o $(OBJ_100)
 	$(CC) $(CFLAGS) -o $@ $^
 
 # Generic rule for object files
