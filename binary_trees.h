@@ -45,7 +45,51 @@ binary_tree_t *binary_trees_ancestor(const binary_tree_t *first, const binary_tr
 void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int)); /* task 20 */
 int binary_tree_is_complete(const binary_tree_t *tree); /* task 21 */
 binary_tree_t *binary_tree_rotate_left(binary_tree_t *tree); /* task 22 */
+binary_tree_t *binary_tree_rotate_right(binary_tree_t *tree); /* task 23 */
 
+/* Task 24: Check if a binary tree is a BST */
+int binary_tree_is_bst(const binary_tree_t *tree);
 
+/* Task 25: Insert a value into a BST */
+bst_t *bst_insert(bst_t **tree, int value);
+
+/* Task 26: Build a BST from an array */
+bst_t *array_to_bst(int *array, size_t size);
+
+/* Task 27: Search for a value in a BST */
+bst_t *bst_search(const bst_t *tree, int value);
+
+/* Task 28: Remove a node from a BST */
+bst_t *bst_remove(bst_t *root, int value);
+
+/* Task 30: Check if a binary tree is an AVL tree */
+int binary_tree_is_avl(const binary_tree_t *tree);
+
+/* Task 31: Insert a value into an AVL tree */
+avl_t *avl_insert(avl_t **tree, int value);
+
+/* Task 32: Build an AVL tree from an array */
+avl_t *array_to_avl(int *array, size_t size);
+
+/* Task 33: Remove a node from an AVL tree */
+avl_t *avl_remove(avl_t *root, int value);
+
+/* Task 34: Build an AVL tree from a sorted array */
+avl_t *sorted_array_to_avl(int *array, size_t size);
+
+/* Task 36: Check if a binary tree is a Max Binary Heap */
+int binary_tree_is_heap(const binary_tree_t *tree);
+
+/* Task 37: Insert a value into a Max Binary Heap */
+heap_t *heap_insert(heap_t **root, int value);
+
+/* Task 38: Build a Max Binary Heap from an array */
+heap_t *array_to_heap(int *array, size_t size);
+
+/* Task 39: Extract the root node of a Max Binary Heap */
+int heap_extract(heap_t **root);
+
+/* Task 40: Convert a Binary Max Heap to a sorted array */
+int *heap_to_sorted_array(heap_t *heap, size_t *size);
 
 #endif /* BINARY_TREES_H */
