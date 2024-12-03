@@ -4,11 +4,11 @@ CFLAGS = -Wall -Wextra -Werror -pedantic
 HEADERS = binary_trees.h
 
 # Project Files
-SRC = 0-binary_tree_node.c
+SRC = 0-binary_tree_node.c 9-binary_tree_height.c
 OBJ = $(SRC:.c=.o)
 
 # Executable Targets
-TARGETS = 0-node
+TARGETS = 0-node 9-height
 
 .PHONY: all clean fclean re
 
@@ -17,6 +17,10 @@ all: $(TARGETS)
 
 # Rule for 0-node
 0-node: 0-main.o $(OBJ)
+	$(CC) $(CFLAGS) -o $@ $^
+
+# Rule for 9-height
+9-height: 9-main.o $(OBJ)
 	$(CC) $(CFLAGS) -o $@ $^
 
 # Generic rule for object files
