@@ -33,4 +33,17 @@ bst_t *bst_insert(bst_t **tree, int value)
             return (NULL);
         current->left = new_node;
     }
-    else if (value 
+    else if (value > current->n)
+    {
+        if (current->right != NULL)
+            return (bst_insert(&current->right, value));
+        new_node = binary_tree_node(current, value);
+        if (new_node == NULL)
+            return (NULL);
+        current->right = new_node;
+    }
+    else
+        return (NULL); /* Duplicate values are not allowed in BST */
+
+    return (new_node);
+}
