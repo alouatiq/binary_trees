@@ -43,6 +43,7 @@ binary_tree_t *binary_tree_sibling(binary_tree_t *node); /* task 17 */
 binary_tree_t *binary_tree_uncle(binary_tree_t *node);  /* task 18 */
 binary_tree_t *binary_trees_ancestor(const binary_tree_t *first, const binary_tree_t *second); /* task 19 */
 void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int)); /* task 20 */
+int binary_tree_is_complete(const binary_tree_t *tree); /* task 21 */
 
 
 
