@@ -16,6 +16,9 @@ SRC_13 = 0-binary_tree_node.c 13-binary_tree_nodes.c binary_tree_print.c \
 SRC_14 = 0-binary_tree_node.c 14-binary_tree_balance.c binary_tree_print.c \
          2-binary_tree_insert_right.c 3-binary_tree_delete.c
 OBJ_14 = $(SRC_14:.c=.o)
+SRC_15 = 0-binary_tree_node.c 15-binary_tree_is_full.c binary_tree_print.c \
+         2-binary_tree_insert_right.c 3-binary_tree_delete.c
+OBJ_15 = $(SRC_15:.c=.o)
 
 OBJ_0 = $(SRC_0:.c=.o)
 OBJ_9 = $(SRC_9:.c=.o)
@@ -53,6 +56,10 @@ all: $(TARGETS)
 
 # Rule for 14-balance
 14-balance: 14-main.o $(OBJ_14)
+	$(CC) $(CFLAGS) -o $@ $^
+
+# Rule for 15-full
+15-full: 15-main.o $(OBJ_15)
 	$(CC) $(CFLAGS) -o $@ $^
 
 # Generic rule for object files
