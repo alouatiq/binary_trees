@@ -4,33 +4,45 @@ CFLAGS = -Wall -Wextra -Werror -pedantic
 HEADERS = binary_trees.h
 
 # Source Files
+
 SRC_0 = 0-binary_tree_node.c
+OBJ_0 = $(SRC_0:.c=.o)
+
 SRC_9 = 0-binary_tree_node.c 9-binary_tree_height.c binary_tree_print.c \
         2-binary_tree_insert_right.c 3-binary_tree_delete.c
+OBJ_9 = $(SRC_9:.c=.o)
+
 SRC_10 = 0-binary_tree_node.c 10-binary_tree_depth.c binary_tree_print.c \
          2-binary_tree_insert_right.c 3-binary_tree_delete.c
+OBJ_10 = $(SRC_10:.c=.o)
+
 SRC_12 = 0-binary_tree_node.c 12-binary_tree_leaves.c binary_tree_print.c \
          2-binary_tree_insert_right.c 3-binary_tree_delete.c
+OBJ_12 = $(SRC_12:.c=.o)
+
 SRC_13 = 0-binary_tree_node.c 13-binary_tree_nodes.c binary_tree_print.c \
          2-binary_tree_insert_right.c 3-binary_tree_delete.c
+OBJ_13 = $(SRC_13:.c=.o)
+
 SRC_14 = 0-binary_tree_node.c 14-binary_tree_balance.c binary_tree_print.c \
          2-binary_tree_insert_right.c 3-binary_tree_delete.c
 OBJ_14 = $(SRC_14:.c=.o)
+
 SRC_15 = 0-binary_tree_node.c 15-binary_tree_is_full.c binary_tree_print.c \
          2-binary_tree_insert_right.c 3-binary_tree_delete.c
 OBJ_15 = $(SRC_15:.c=.o)
+
 SRC_16 = 0-binary_tree_node.c 16-binary_tree_is_perfect.c binary_tree_print.c \
          2-binary_tree_insert_right.c 3-binary_tree_delete.c
 OBJ_16 = $(SRC_16:.c=.o)
+
 SRC_17 = 0-binary_tree_node.c 17-binary_tree_sibling.c binary_tree_print.c \
          3-binary_tree_delete.c
 OBJ_17 = $(SRC_17:.c=.o)
 
-OBJ_0 = $(SRC_0:.c=.o)
-OBJ_9 = $(SRC_9:.c=.o)
-OBJ_10 = $(SRC_10:.c=.o)
-OBJ_12 = $(SRC_12:.c=.o)
-OBJ_13 = $(SRC_13:.c=.o)
+SRC_18 = 0-binary_tree_node.c 18-binary_tree_uncle.c binary_tree_print.c \
+         3-binary_tree_delete.c
+OBJ_18 = $(SRC_18:.c=.o)
 
 # Executable Targets
 TARGETS = 0-node 9-height 10-depth 12-leaves 13-nodes
@@ -74,6 +86,10 @@ all: $(TARGETS)
 
 # Rule for 17-sibling
 17-sibling: 17-main.o $(OBJ_17)
+	$(CC) $(CFLAGS) -o $@ $^
+
+# Rule for 18-uncle
+18-uncle: 18-main.o $(OBJ_18)
 	$(CC) $(CFLAGS) -o $@ $^
 
 # Generic rule for object files
