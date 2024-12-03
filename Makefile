@@ -22,6 +22,9 @@ OBJ_15 = $(SRC_15:.c=.o)
 SRC_16 = 0-binary_tree_node.c 16-binary_tree_is_perfect.c binary_tree_print.c \
          2-binary_tree_insert_right.c 3-binary_tree_delete.c
 OBJ_16 = $(SRC_16:.c=.o)
+SRC_17 = 0-binary_tree_node.c 17-binary_tree_sibling.c binary_tree_print.c \
+         3-binary_tree_delete.c
+OBJ_17 = $(SRC_17:.c=.o)
 
 OBJ_0 = $(SRC_0:.c=.o)
 OBJ_9 = $(SRC_9:.c=.o)
@@ -67,6 +70,10 @@ all: $(TARGETS)
 
 # Rule for 16-perfect
 16-perfect: 16-main.o $(OBJ_16)
+	$(CC) $(CFLAGS) -o $@ $^
+
+# Rule for 17-sibling
+17-sibling: 17-main.o $(OBJ_17)
 	$(CC) $(CFLAGS) -o $@ $^
 
 # Generic rule for object files
