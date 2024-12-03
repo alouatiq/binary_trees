@@ -54,6 +54,9 @@ SRC_101 = 0-binary_tree_node.c binary_tree_print.c 3-binary_tree_delete.c \
            101-binary_tree_levelorder.c
 OBJ_101 = $(SRC_101:.c=.o)
 
+SRC_102 = 0-binary_tree_node.c binary_tree_print.c 3-binary_tree_delete.c \
+           102-binary_tree_is_complete.c
+OBJ_102 = $(SRC_102:.c=.o)
 
 # Executable Targets
 TARGETS = 0-node 9-height 10-depth 12-leaves 13-nodes
@@ -109,6 +112,9 @@ all: $(TARGETS)
 
 # Rule for 101-binary_tree_levelorder
 101-levelorder: 101-main.o $(OBJ_101)
+	$(CC) $(CFLAGS) -o $@ $^
+
+102-complete: 102-main.o $(OBJ_102)
 	$(CC) $(CFLAGS) -o $@ $^
 
 # Generic rule for object files
