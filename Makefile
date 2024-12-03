@@ -58,6 +58,9 @@ SRC_102 = 0-binary_tree_node.c binary_tree_print.c 3-binary_tree_delete.c \
            102-binary_tree_is_complete.c
 OBJ_102 = $(SRC_102:.c=.o)
 
+SRC_103 = 0-binary_tree_node.c binary_tree_print.c 103-binary_tree_rotate_left.c
+OBJ_103 = $(SRC_103:.c=.o)
+
 # Executable Targets
 TARGETS = 0-node 9-height 10-depth 12-leaves 13-nodes
 
@@ -115,6 +118,9 @@ all: $(TARGETS)
 	$(CC) $(CFLAGS) -o $@ $^
 
 102-complete: 102-main.o $(OBJ_102)
+	$(CC) $(CFLAGS) -o $@ $^
+
+103-rotate_left: 103-main.o $(OBJ_103)
 	$(CC) $(CFLAGS) -o $@ $^
 
 # Generic rule for object files
