@@ -49,6 +49,11 @@ SRC_100 = 0-binary_tree_node.c binary_tree_print.c \
            3-binary_tree_delete.c 100-binary_trees_ancestor.c
 OBJ_100 = $(SRC_100:.c=.o)
 
+# Source Files for Task 20
+SRC_101 = 0-binary_tree_node.c binary_tree_print.c 3-binary_tree_delete.c \
+           101-binary_tree_levelorder.c
+OBJ_101 = $(SRC_101:.c=.o)
+
 
 # Executable Targets
 TARGETS = 0-node 9-height 10-depth 12-leaves 13-nodes
@@ -100,6 +105,10 @@ all: $(TARGETS)
 
 # Rule for 100-ancestor
 100-ancestor: 100-main.o $(OBJ_100)
+	$(CC) $(CFLAGS) -o $@ $^
+
+# Rule for 101-binary_tree_levelorder
+101-levelorder: 101-main.o $(OBJ_101)
 	$(CC) $(CFLAGS) -o $@ $^
 
 # Generic rule for object files
