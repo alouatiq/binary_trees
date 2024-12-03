@@ -11,14 +11,17 @@ SRC_10 = 0-binary_tree_node.c 10-binary_tree_depth.c binary_tree_print.c \
          2-binary_tree_insert_right.c 3-binary_tree_delete.c
 SRC_12 = 0-binary_tree_node.c 12-binary_tree_leaves.c binary_tree_print.c \
          2-binary_tree_insert_right.c 3-binary_tree_delete.c
+SRC_13 = 0-binary_tree_node.c 13-binary_tree_nodes.c binary_tree_print.c \
+         2-binary_tree_insert_right.c 3-binary_tree_delete.c
 
 OBJ_0 = $(SRC_0:.c=.o)
 OBJ_9 = $(SRC_9:.c=.o)
 OBJ_10 = $(SRC_10:.c=.o)
 OBJ_12 = $(SRC_12:.c=.o)
+OBJ_13 = $(SRC_13:.c=.o)
 
 # Executable Targets
-TARGETS = 0-node 9-height 10-depth 12-leaves
+TARGETS = 0-node 9-height 10-depth 12-leaves 13-nodes
 
 .PHONY: all clean fclean re
 
@@ -41,13 +44,17 @@ all: $(TARGETS)
 12-leaves: 12-main.o $(OBJ_12)
 	$(CC) $(CFLAGS) -o $@ $^
 
+# Rule for 13-nodes
+13-nodes: 13-main.o $(OBJ_13)
+	$(CC) $(CFLAGS) -o $@ $^
+
 # Generic rule for object files
 %.o: %.c $(HEADERS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 # Clean object files
 clean:
-	rm -f $(OBJ_0) $(OBJ_9) $(OBJ_10) $(OBJ_12) *.o
+	rm -f $(OBJ_0) $(OBJ_9) $(OBJ_10) $(OBJ_12) $(OBJ_13) *.o
 
 # Clean all build artifacts
 fclean: clean
