@@ -27,6 +27,8 @@ avl_t *avl_remove(avl_t *root, int value)
 	if (!root->left || !root->right)
 	{
 	temp = root->left ? root->left : root->right;
+	if (temp != NULL)
+	temp->parent = root->parent;
 	free(root);
 	return (temp);
 	}
