@@ -6,49 +6,55 @@
  * @root: Pointer to the root node of the tree for removing the node.
  * @value: Value to remove from the tree.
  *
- * Return: Pointer to the new root node of the tree after deletion and rebalancing.
+ * Return: Pointer to the new root node of the tree after deletion
+ *and rebalancing.
  */
 avl_t *avl_remove(avl_t *root, int value)
 {
-    if (!root)
-        return (NULL);
+	avl_t *temp;
+	avl_t *successor;
+	int balance;
 
-    if (value < root->n)
-        root->left = avl_remove(root->left, value);
-    else if (value > root->n)
-        root->right = avl_remove(root->right, value);
-    else
-    {
-        if (!root->left || !root->right)
-        {
-            avl_t *temp = root->left ? root->left : root->right;
-            free(root);
-            return (temp);
-        }
+	if (!root)
+	return (NULL);
 
-        avl_t *successor = root->right;
-        while (successor->left)
-            successor = successor->left;
-        root->n = successor->n;
-        root->right = avl_remove(root->right, successor->n);
-    }
+	if (value < root->n)
+	root->left = avl_remove(root->left, value);
+	else if (value > root->n)
+	root->right = avl_remove(root->right, value);
+	else
+	{
+	if (!root->left || !root->right)
+	{
+	temp = root->left ? root->left : root->right;
+	free(root);
+	return (temp);
+	}
 
-    /* Rebalance the tree */
-    int balance = binary_tree_balance(root);
-    if (balance > 1 && binary_tree_balance(root->left) >= 0)
-        return binary_tree_rotate_right(root);
-    if (balance > 1 && binary_tree_balance(root->left) < 0)
-    {
-        root->left = binary_tree_rotate_left(root->left);
-        return binary_tree_rotate_right(root);
-    }
-    if (balance < -1 && binary_tree_balance(root->right) <= 0)
-        return binary_tree_rotate_left(root);
-    if (balance < -1 && binary_tree_balance(root->right) > 0)
-    {
-        root->right = binary_tree_rotate_right(root->right);
-        return binary_tree_rotate_left(root);
-    }
+	successor = root->right;
+	while (successor->left)
+	successor = successor->left;
+	root->n = successor->n;
+	root->right = avl_remove(root->right, successor->n);
+	}
+	return (root);
 
-    return (root);
-}
+	/* Rebalance the tree */
+	balance = binary_tree_balance(root);
+	if (balance > 1 && binary_tree_balance(root->left) >= 0)
+	return (binary_tree_rotate_right(root));
+	if (balance > 1 && binary_tree_balance(root->left) < 0)
+	{
+	root->left = binary_tree_rotate_left(root->left);
+	return (binary_tree_rotate_right(root));
+	}
+	if (balance < -1 && binary_tree_balance(root->right) <= 0)
+	return (binary_tree_rotate_left(root));
+	if (balance < -1 && binary_tree_balance(root->right) > 0)
+	{
+	root->right = binary_tree_rotate_right(root->right);
+	return (binary_tree_rotate_left(root));
+	}
+
+	return (root);
+	}
