@@ -11,6 +11,7 @@ int height(const binary_tree_t *tree)
 {
 	int left_height;
 	int right_height;
+
 	if (!tree)
 	return (0);
 	left_height = height(tree->left);
@@ -31,13 +32,14 @@ int is_avl_helper(const binary_tree_t *tree, int min, int max)
 {
 	int left_height;
 	int right_height;
+
 	if (!tree)
 	return (1);
 
 	if (tree->n <= min || tree->n >= max)
 	return (0);
 
-        left_height = height(tree->left);
+	left_height = height(tree->left);
 	right_height = height(tree->right);
 
 	if (abs(left_height - right_height) > 1)
