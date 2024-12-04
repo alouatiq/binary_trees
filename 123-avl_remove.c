@@ -37,7 +37,7 @@ avl_t *avl_remove(avl_t *root, int value)
 	root->n = successor->n;
 	root->right = avl_remove(root->right, successor->n);
 	}
-	return (root);
+
 
 	/* Rebalance the tree */
 	balance = binary_tree_balance(root);
