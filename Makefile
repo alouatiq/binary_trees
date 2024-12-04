@@ -196,7 +196,8 @@ all: $(TARGETS)
 123-avl_remove: 123-main.o $(OBJ_33)
 	$(CC) $(CFLAGS) -o $@ $^
 
-124-sorted_to_avl: 124-main.o $(OBJ_34)
+# Rule for 124-sorted_array_to_avl
+124-sorted_array_to_avl: 124-main.o 124-sorted_array_to_avl.o 0-binary_tree_node.o
 	$(CC) $(CFLAGS) -o $@ $^
 
 130-is_heap: 130-main.o $(OBJ_36)
