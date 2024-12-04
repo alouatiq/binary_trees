@@ -53,7 +53,7 @@ bst_t *bst_remove(bst_t *root, int value)
 	temp = min_value_node(root->right);
 	root->n = temp->n;
 	root->right = bst_remove(root->right, temp->n);
-	  }
+	}
 
 	return (root);
 }
