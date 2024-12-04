@@ -12,12 +12,17 @@ avl_t *array_to_avl(int *array, size_t size)
 {
 	avl_t *root = NULL;
 	size_t i;
+	avl_t *node;
 
 	if (!array || size == 0)
 	return (NULL);
 
 	for (i = 0; i < size; i++)
-	avl_insert(&root, array[i]);
+	{
+	node = avl_insert(&root, array[i]);
+	if (node == NULL)
+	continue;
+	}
 
 	return (root);
 }
