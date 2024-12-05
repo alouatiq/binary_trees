@@ -20,30 +20,6 @@ size_t binary_tree_height(const binary_tree_t *tree)
 }
 
 /**
- * get_last_node - Gets the last node of the binary tree using level-order
- * @root: Pointer to the root node of the tree
- *
- * Return: Pointer to the last node
- */
-heap_t *get_last_node(heap_t *root)
-{
-    size_t height, level;
-    heap_t *last_node = NULL;
-
-    if (!root)
-        return (NULL);
-
-    height = binary_tree_height(root);
-
-    for (level = 0; level <= height; level++)
-    {
-        binary_tree_levelorder_helper(root, level, &last_node);
-    }
-
-    return (last_node);
-}
-
-/**
  * binary_tree_levelorder_helper - Traverses the tree and finds the last node
  * @tree: Pointer to the root node of the tree
  * @level: Current level of the tree
@@ -61,6 +37,28 @@ void binary_tree_levelorder_helper(heap_t *tree, size_t level, heap_t **last_nod
         binary_tree_levelorder_helper(tree->left, level - 1, last_node);
         binary_tree_levelorder_helper(tree->right, level - 1, last_node);
     }
+}
+
+/**
+ * get_last_node - Gets the last node of the binary tree using level-order
+ * @root: Pointer to the root node of the tree
+ *
+ * Return: Pointer to the last node
+ */
+heap_t *get_last_node(heap_t *root)
+{
+    size_t height, level;
+    heap_t *last_node = NULL;
+
+    if (!root)
+        return (NULL);
+
+    height = binary_tree_height(root);
+
+    for (level = 0; level <= height; level++)
+        binary_tree_levelorder_helper(root, level, &last_node);
+
+    return (last_node);
 }
 
 /**
@@ -122,6 +120,7 @@ int heap_extract(heap_t **root)
     }
 
     last_node = get_last_node(*root);
+
     if (last_node->parent)
     {
         if (last_node->parent->left == last_node)
