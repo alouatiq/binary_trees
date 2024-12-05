@@ -27,20 +27,29 @@ size_t binary_tree_height(const binary_tree_t *tree)
  * @tree: Pointer to the root node of the tree.
  * @level: Current level to process.
  * @func: Function to call for each node.
- * @result: Double pointer to store the last node.
  */
-void binary_tree_level(const binary_tree_t *tree, size_t level, heap_t **result)
+void binary_tree_level(const binary_tree_t *tree, size_t level, void (*func)(heap_t *))
 {
     if (!tree)
         return;
 
     if (level == 0)
-        *result = (heap_t *)tree;
+        func((heap_t *)tree);
     else
     {
-        binary_tree_level(tree->left, level - 1, result);
-        binary_tree_level(tree->right, level - 1, result);
+        binary_tree_level(tree->left, level - 1, func);
+        binary_tree_level(tree->right, level - 1, func);
     }
+}
+
+/**
+ * get_last_node_helper - Callback to update the last node pointer.
+ * @node: Current node being visited.
+ */
+void get_last_node_helper(heap_t *node)
+{
+    static heap_t *last_node = NULL;
+    last_node = node;
 }
 
 /**
@@ -59,7 +68,9 @@ heap_t *get_last_node(heap_t *root)
 
     height = binary_tree_height(root);
     for (level = 0; level < height; level++)
-        binary_tree_level(root, level, &last_node);
+    {
+        binary_tree_level(root, level, get_last_node_helper);
+    }
 
     return (last_node);
 }
