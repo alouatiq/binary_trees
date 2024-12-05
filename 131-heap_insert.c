@@ -6,14 +6,15 @@
  *
  * Return: Pointer to the new root node after heapification
  */
- heap_t *heapify_up(heap_t *node)
+heap_t *heapify_up(heap_t *node)
 {
 	while (node->parent && node->n > node->parent->n)
 	{
-		int temp = node->n;
-		node->n = node->parent->n;
-		node->parent->n = temp;
-		node = node->parent;
+	int temp = node->n;
+
+	node->n = node->parent->n;
+	node->parent->n = temp;
+	node = node->parent;
 	}
 	return (node);
 }
@@ -30,26 +31,26 @@ heap_t *find_insertion_point(heap_t *root, size_t size)
 	size_t mask = 1;
 
 	while (mask <= size)
-		mask <<= 1;
+	mask <<= 1;
 	mask >>= 2;
 
 	while (mask > 0)
 	{
-	  if (root == NULL)
-	    return (NULL);
-		if (size & mask)
-		  {
-		    if (root->right == NULL)
-		      break;
-			root = root->right;
-		  }
-		else
-		  {
-		    if (root->left == NULL)
-		      break;
-			root = root->left;
-		  }
-		mask >>= 1;
+	if (root == NULL)
+	return (NULL);
+	if (size & mask)
+	{
+	if (root->right == NULL)
+	break;
+	root = root->right;
+	}
+	else
+	{
+	if (root->left == NULL)
+	break;
+	root = root->left;
+	}
+	mask >>= 1;
 	}
 	return (root);
 }
@@ -63,7 +64,7 @@ heap_t *find_insertion_point(heap_t *root, size_t size)
 size_t binary_tree_size(const binary_tree_t *tree)
 {
 	if (!tree)
-		return (0);
+	return (0);
 	return (1 + binary_tree_size(tree->left) + binary_tree_size(tree->right));
 }
 
@@ -80,12 +81,12 @@ heap_t *heap_insert(heap_t **root, int value)
 	heap_t *new_node, *parent;
 
 	if (!root)
-		return (NULL);
+	return (NULL);
 
 	if (!*root)
 	{
-		*root = binary_tree_node(NULL, value);
-		return (*root);
+	*root = binary_tree_node(NULL, value);
+	return (*root);
 	}
 
 	size = binary_tree_size(*root);
@@ -93,12 +94,12 @@ heap_t *heap_insert(heap_t **root, int value)
 
 	new_node = binary_tree_node(parent, value);
 	if (!new_node)
-		return (NULL);
+	return (NULL);
 
 	if (!parent->left)
-		parent->left = new_node;
+	parent->left = new_node;
 	else
-		parent->right = new_node;
+	parent->right = new_node;
 
 	return (heapify_up(new_node));
-}
+	}
