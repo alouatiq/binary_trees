@@ -6,7 +6,7 @@
  *
  * Return: Pointer to the new root node after heapification
  */
-static heap_t *heapify_up(heap_t *node)
+ heap_t *heapify_up(heap_t *node)
 {
 	while (node->parent && node->n > node->parent->n)
 	{
@@ -25,7 +25,7 @@ static heap_t *heapify_up(heap_t *node)
  *
  * Return: Pointer to the parent node where the new node will be inserted
  */
-static heap_t *find_insertion_point(heap_t *root, size_t size)
+heap_t *find_insertion_point(heap_t *root, size_t size)
 {
 	size_t mask = 1;
 
@@ -35,10 +35,20 @@ static heap_t *find_insertion_point(heap_t *root, size_t size)
 
 	while (mask > 0)
 	{
+	  if (root == NULL)
+	    return (NULL);
 		if (size & mask)
+		  {
+		    if (root->right == NULL)
+		      break;
 			root = root->right;
+		  }
 		else
+		  {
+		    if (root->left == NULL)
+		      break;
 			root = root->left;
+		  }
 		mask >>= 1;
 	}
 	return (root);
@@ -50,7 +60,7 @@ static heap_t *find_insertion_point(heap_t *root, size_t size)
  *
  * Return: Size of the tree, or 0 if tree is NULL
  */
-static size_t binary_tree_size(const binary_tree_t *tree)
+size_t binary_tree_size(const binary_tree_t *tree)
 {
 	if (!tree)
 		return (0);
