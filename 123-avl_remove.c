@@ -2,13 +2,13 @@
 #include <stdlib.h>
 
 /**
- * avl_remove - Removes a node from an AVL tree.
- * @root: Pointer to the root node of the tree for removing the node.
- * @value: Value to remove from the tree.
- *
- * Return: Pointer to the new root node of the tree after deletion
- *and rebalancing.
- */
+	* avl_remove - Removes a node from an AVL tree.
+	* @root: Pointer to the root node of the tree for removing the node.
+	* @value: Value to remove from the tree.
+	*
+	* Return: Pointer to the new root node of the tree after deletion
+	*and rebalancing.
+	*/
 avl_t *avl_remove(avl_t *root, int value)
 {
 	avl_t *temp;

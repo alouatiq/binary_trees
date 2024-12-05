@@ -2,17 +2,17 @@
 #include <stdlib.h>
 
 /**
- * sorted_array_to_avl_helper - Recursively builds an
- * AVL tree from a sorted array.
- * @array: Pointer to the first element of the array.
- * @start: Starting index of the subarray.
- * @end: Ending index of the subarray.
- * @parent: Pointer to the parent node.
- *
- * Return: Pointer to the new root node.
- */
+	* sorted_array_to_avl_helper - Recursively builds an
+	* AVL tree from a sorted array.
+	* @array: Pointer to the first element of the array.
+	* @start: Starting index of the subarray.
+	* @end: Ending index of the subarray.
+	* @parent: Pointer to the parent node.
+	*
+	* Return: Pointer to the new root node.
+	*/
 avl_t *sorted_array_to_avl_helper(int *array, int start, int end,
-				  avl_t *parent)
+	avl_t *parent)
 {
 	avl_t *node;
 	int mid;
@@ -32,12 +32,12 @@ avl_t *sorted_array_to_avl_helper(int *array, int start, int end,
 }
 
 /**
- * sorted_array_to_avl - Builds an AVL tree from a sorted array.
- * @array: Pointer to the first element of the sorted array.
- * @size: Number of elements in the array.
- *
- * Return: Pointer to the root node of the AVL tree.
- */
+	* sorted_array_to_avl - Builds an AVL tree from a sorted array.
+	* @array: Pointer to the first element of the sorted array.
+	* @size: Number of elements in the array.
+	*
+	* Return: Pointer to the root node of the AVL tree.
+	*/
 avl_t *sorted_array_to_avl(int *array, size_t size)
 {
 	if (!array || size == 0)

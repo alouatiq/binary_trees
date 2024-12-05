@@ -27,7 +27,7 @@ size_t binary_tree_height(const binary_tree_t *tree)
 	* @func: Function to call for each node
 	*/
 void binary_tree_level(const binary_tree_t *tree, size_t level,
-		       void (*func)(int))
+	void (*func)(int))
 {
 	if (!tree)
 	return;

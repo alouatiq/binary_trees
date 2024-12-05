@@ -3,10 +3,10 @@
 #include "binary_trees.h"
 
 /**
- * basic_tree - Build a basic binary tree
- *
- * Return: A pointer to the created tree
- */
+	* basic_tree - Build a basic binary tree
+	*
+	* Return: A pointer to the created tree
+	*/
 binary_tree_t *basic_tree(void)
 {
 	binary_tree_t *root;
@@ -21,10 +21,10 @@ binary_tree_t *basic_tree(void)
 }
 
 /**
- * main - Entry point
- *
- * Return: Always 0 (Success)
- */
+	* main - Entry point
+	*
+	* Return: Always 0 (Success)
+	*/
 int main(void)
 {
 	binary_tree_t *root;
